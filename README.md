@@ -29,9 +29,9 @@
     * View는 추후에 연습
     * 간단한 테스트 케이스의 작성
     * 컴포넌트 스캔과 자동 의존관계 설정
-     * 스프링빈? 스프링이 관리하는 객체 
-     * @Component 어노테이션이 있으면 스프링 빈으로 자동 등록 됨
-     * @Controller, @Service, @Repository 어노테이션은 내부에 @Component가 포함되어있다
+      * 스프링빈? 스프링이 관리하는 객체 
+      * @Component 어노테이션이 있으면 스프링 빈으로 자동 등록 됨
+      * @Controller, @Service, @Repository 어노테이션은 내부에 @Component가 포함되어있다
     * 자바코드로 직접 스프링빈 등록
-     * @Configuration
-     * @Bean  
+      * @Configuration
+      * @Bean  
