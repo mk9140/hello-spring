@@ -32,3 +32,6 @@
      * 스프링빈? 스프링이 관리하는 객체 
      * @Component 어노테이션이 있으면 스프링 빈으로 자동 등록 됨
      * @Controller, @Service, @Repository 어노테이션은 내부에 @Component가 포함되어있다
+    * 자바코드로 직접 스프링빈 등록
+     * @Configuration
+     * @Bean  
