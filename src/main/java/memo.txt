@@ -41,7 +41,7 @@ MemberService --> (interface)MemberRepository
 -자바 코드로 직접 스프링 빈 등록하기
 
 *컴포넌트 스캔과 자동 의존관계 설정
--@Component 애노테이션이 있으면 스프링 빈으로 자동등록굄
+-@Component 애노테이션이 있으면 스프링 빈으로 자동등록됨
 -@Controller 가 스프링 빈으로 자동 등록되는 이유도 컴보넌트 스캔 때문!
 --@Controller, @Service, @Repository는 이미 @Component를 포함하고있음 -> 자동등록됨!
 -아무곳(패키지)에서나 사용할 수 있는 것은 아님.
@@ -53,3 +53,22 @@ MemberService --> (interface)MemberRepository
 -싱글톤? 유일하게 하나만 등록해서, 이를 공유하는 패턴
 -따라서, 같은 스프링빈 이면, 모두 같은 인스턴스!
 -예를들면, HelloController의 인스턴스는 하나뿐! MemberController의 인스턴스는 하나뿐!
+
+*자바 코드로 직접 스프링 빈 등록하기
+-@Configuration  어노테이션 이 붙은 클래스 내부에서
+-@Bean 어노태이션을 써서 직접 빈을 등록할 수 있다.
+-실무에서는 컨트롤러, 서비스, 리포지토리 처럼 정형화된 코드는 컴포넌트 스캔방식 사용
+-정형화되지 않은 경우나 상황에 따라 구현 클래스를 변경해야 하면
+-@Configuration 과 @Bean으로 직접 등록해서 사용한다.
+--> DB가 미정인 상황을 상정했으므로, 추후 MemberRepository인터페이스의 구현체인
+--> MemoryMemberRepository를 바꿔야한다!
+--> 이러한 경우에 @Configuration 붙은 클래스에서 구현체만 바꿔주면 다른 곳 손 볼 필요 없이 간단하게 가능
+-주의! @Autowired를 통한 DI는 "빈으로 등록하지 않고" 내가 직접 생성한 객체에서는 동작하지 않는다! ()
+
+
+*참고
+-DI의 세 가지 방법
+--필드 주입
+--setter주입
+--생성자 주입
+-예제에서 진행한 방법은 생성자 주입 방법(요즘의 개발패턴)
