@@ -2,6 +2,8 @@ package hello.hellowspring.service;
 
 import hello.hellowspring.domain.Member;
 import hello.hellowspring.repository.MemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
@@ -26,12 +28,16 @@ import java.util.Optional;
 *
 * */
 
+
+@Service // 컴포넌트스캔방법! 스프링이 관리하도록(빈) @Autowired가 될 수 있도록!
+// @Component 라고 해도 됨. -> @Service어노테이션에는 내부에 이미 @Component가 등록되어있음
 public class MemberService {
 //	private final MemoryMemberRepository memoryMemberRepository = new MemoryMemberRepository();
 
 	// new 하는 것이 아니라 외부에서 받아오도록
 	// --> 의존성 주입(DI)
 	private final MemberRepository memberRepository;
+	@Autowired 	// 생성자에 @Autowired 어노테이션? -> 스프링 컨테이너가 가지고 있는 MemberRepository를 가져다 연결해줌!
 	public MemberService(MemberRepository memberRepository) {
 		this.memberRepository = memberRepository;
 	}

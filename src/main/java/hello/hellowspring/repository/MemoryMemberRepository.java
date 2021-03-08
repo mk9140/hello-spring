@@ -1,10 +1,16 @@
 package hello.hellowspring.repository;
 
 import hello.hellowspring.domain.Member;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
+
+
 /* 인터페이스 MemberRepository의 구현체 */
+
+@Repository //컴포넌트스캔방법! 스프링이 관리할수 있도록(빈) 어노테이션 설정
+// @Component 라고 해도 됨. -> @Repository어노테이션에는 내부에 이미 @Component가 등록되어있음
 public class MemoryMemberRepository implements MemberRepository{
 
 	//실무에서는 동시성 문제가 있을 수 있으므로
