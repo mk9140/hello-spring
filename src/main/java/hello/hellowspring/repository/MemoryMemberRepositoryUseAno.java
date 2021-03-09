@@ -7,11 +7,13 @@ import java.util.*;
 
 
 /*
-* 자바코드로 직접 스프링빈 등록하는 방법
+* 자바빈 등록방법:컴포넌트 스캔방법
 * */
+/* 인터페이스 MemberRepository의 구현체 */
 
-// @Repository 생략하고 진행한다
-public class MemoryMemberRepositoryNotAno implements MemberRepository{
+@Repository //컴포넌트스캔방법! 스프링이 관리할수 있도록(빈) 어노테이션 설정
+// @Component 라고 해도 됨. -> @Repository어노테이션에는 내부에 이미 @Component가 등록되어있음
+public class MemoryMemberRepositoryUseAno implements MemberRepository{
 
 	//실무에서는 동시성 문제가 있을 수 있으므로
 	//공유되는 변수의 경우에는 ConcurrentHashMap 을 사용,

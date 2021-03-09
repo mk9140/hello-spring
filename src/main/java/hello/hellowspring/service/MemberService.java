@@ -29,7 +29,7 @@ import java.util.Optional;
 * */
 
 
-@Service // 컴포넌트스캔방법! 스프링이 관리하도록(빈) @Autowired가 될 수 있도록!
+//@Service  //컴포넌트스캔이 아닌 자바코드로 직접 빈 등록해보기
 // @Component 라고 해도 됨. -> @Service어노테이션에는 내부에 이미 @Component가 등록되어있음
 public class MemberService {
 //	private final MemoryMemberRepository memoryMemberRepository = new MemoryMemberRepository();
